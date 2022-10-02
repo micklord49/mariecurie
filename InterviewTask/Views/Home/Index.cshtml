@@ -1,4 +1,5 @@
-﻿<!-- Header -->
+﻿
+<!-- Header -->
 <header class="header header-border mb-4">
     <div class="header-secondary">
         <div class="container">
@@ -161,48 +162,69 @@
             </div>
         </div>
     </section>
-    
-    <!-- Create your cards here.  One has been provided as a template for use in your loop based on the results contained within your model -->
 
+    <!-- Create your cards here.  One has been provided as a template for use in your loop based on the results contained within your model -->
     <section>
         <div class="container">
             <div class="row">
-                <!-- Marie Curie Helper Service card -->
-                <div class="block promomanualblock col-md-4 col-sm-12">
-                    <article class="card HELPER-SERVICE-OPEN-CLOSED-CSS-CLASS">
-                        <div class="card__main">
-                            <!-- Card title -->
-                            <header class="card__header">
-                                <h3 class="card__header__h">HELPER SERVICE NAME</h3>
-                            </header>
-                            <hr>
-                            <div class="card__description mb-2">
-                                <p class="mb-0">
-                                    DESCRIPTION TEXT GOES HERE
-                                </p>
-                                <div class="card__arrow">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 42" width="20" height="30" aria-hidden="true" role="img">
-                                        <title>Arrow / view article icon</title>
-                                        <path fill="none"
-                                              stroke="#000"
-                                              stroke-linecap="round"
-                                              stroke-miterlimit="10"
-                                              stroke-width="3"
-                                              d="M1.9 1c4.8 4.1 6.6 7.3 10.6 11.2 2.3 2.2 6.4 6.5 6.5 9.7-2.1 6-4.6 6.8-9.1 11.3C8.5 34.8 2.7 39.6 1 41"></path>
-                                    </svg>
+                @if (Model != null)
+                {
+                    foreach (var service in Model.Services)
+                    {
+                        <!-- Marie Curie Helper Service card -->
+                        <div class="block promomanualblock col-md-4 col-sm-12">
+                            <article class="card @(service.Status == "OPEN" ? "bg-color-donation-orange" : "bg-color-light-grey")">
+                                <div class="card__main">
+                                    <!-- Card title -->
+                                    <header class="card__header">
+                                        <a href="//www.mariecurie.org.uk/help/helper-volunteers" rel="bookmark" title="Helper Volunteers">
+                                            <h3 class="card__header__h">@service.Title</h3>
+                                        </a>
+                                    </header>
+                                    <p>
+                                        <button class="btn btn-primary" onclick='
+    var data = { Id: "@service.Id" };
+    $.post("/Weather/GetWeather", data, function (response) {
+            $mymodal = $("#myModal");
+            $mymodal.find("div.modal-body").html(response);
+            $mymodal.modal("show");
+    });
+                                        '>Current Weather</button>
+                                    </p>
+                                    <p id="@(service.Id)">
+
+                                    </p>
+                                    <hr>
+                                    <div class="card__description mb-2">
+                                        <p class="mb-0">
+                                            @service.Description
+                                        </p>
+                                        <div class="card__arrow">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 42" width="20" height="30" aria-hidden="true" role="img">
+                                                <title>Arrow / view article icon</title>
+                                                <path fill="none"
+                                                      stroke="#000"
+                                                      stroke-linecap="round"
+                                                      stroke-miterlimit="10"
+                                                      stroke-width="3"
+                                                      d="M1.9 1c4.8 4.1 6.6 7.3 10.6 11.2 2.3 2.2 6.4 6.5 6.5 9.7-2.1 6-4.6 6.8-9.1 11.3C8.5 34.8 2.7 39.6 1 41"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <!-- Contact details -->
+                                    <p class="lead text-center">@service.TelephoneNumber</p>
+                                    <hr>
+                                    <!-- Opening hours information -->
+                                    <p class="lead text-center">@service.StatusText</p>
+
                                 </div>
-                            </div>
-                            <!-- Contact details -->
-                            <p class="lead text-center">0800 090 2304</p>
-                            <hr>
-                            <!-- Opening hours information -->
-                            <p class="lead text-center">HELPER SERVICE HOURS | OPEN / CLOSED INFORMATION</p>
+                                @*<a class="card__link--overlay" href="//www.mariecurie.org.uk/help/nursing-services" rel="bookmark" title="Nursing services">
+                                    <span class="sr-only">@service.Title</span>
+                                </a>*@
+                            </article>
                         </div>
-                        <a class="card__link--overlay" href="//www.mariecurie.org.uk/help/nursing-services" rel="bookmark" title="Nursing services">
-                            <span class="sr-only">HELPER SERVICE NAME</span>
-                        </a>
-                    </article>
-                </div>
+                    }
+                }
             </div>
         </div>
     </section>
@@ -314,3 +336,19 @@
         </div>
     </div>
 </footer>
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Current Weather</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->

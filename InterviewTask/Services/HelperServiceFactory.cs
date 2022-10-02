@@ -27,7 +27,9 @@ namespace InterviewTask.Services
                 FridayOpeningHours = weekdayOpeningTimes,
                 SaturdayOpeningHours = closedTimes,
                 SundayOpeningHours = closedTimes,
-                TelephoneNumber = "0207 0000000"
+                TelephoneNumber = "0207 0000000",
+                Lat = 51.537,
+                Lon = 0.01
             };
 
             var northLondonHelper = new HelperServiceModel
@@ -42,7 +44,9 @@ namespace InterviewTask.Services
                 FridayOpeningHours = closedTimes,
                 SaturdayOpeningHours = closedTimes,
                 SundayOpeningHours = closedTimes,
-                TelephoneNumber = "0207 0000000"
+                TelephoneNumber = "0207 0000000",
+                Lat = 51.603,
+                Lon = 0.13
             };
 
             var bristolHelper = new HelperServiceModel
@@ -57,7 +61,9 @@ namespace InterviewTask.Services
                 FridayOpeningHours = weekdayOpeningTimes,
                 SaturdayOpeningHours = closedTimes,
                 SundayOpeningHours = closedTimes,
-                TelephoneNumber = "0117 0000000"
+                TelephoneNumber = "0117 0000000",
+                Lat=51.452,
+                Lon = -2.59
             };
 
             var somersetHelper = new HelperServiceModel
@@ -72,7 +78,9 @@ namespace InterviewTask.Services
                 FridayOpeningHours = weekdayOpeningTimes,
                 SaturdayOpeningHours = closedTimes,
                 SundayOpeningHours = closedTimes,
-                TelephoneNumber = "0207 0000000"
+                TelephoneNumber = "0207 0000000",
+                Lat = 51.115,
+                Lon = -2.93
             };
 
             var nottinghamHelper = new HelperServiceModel
@@ -87,7 +95,9 @@ namespace InterviewTask.Services
                 FridayOpeningHours = weekdayOpeningTimes,
                 SaturdayOpeningHours = weekdayOpeningTimes,
                 SundayOpeningHours = weekdayOpeningTimes,
-                TelephoneNumber = "0116 0000000"
+                TelephoneNumber = "0116 0000000",
+                Lat = 52.95,
+                Lon = -1.15
             };
 
             var liverpoolHelper = new HelperServiceModel
@@ -102,7 +112,9 @@ namespace InterviewTask.Services
                 FridayOpeningHours = weekdayOpeningTimes,
                 SaturdayOpeningHours = weekendOpeningTimes,
                 SundayOpeningHours = weekendOpeningTimes,
-                TelephoneNumber = "0151 0000000"
+                TelephoneNumber = "0151 0000000",
+                Lat = 53.41,
+                Lon = -2.98
             };
 
             var northernIrelandHelper = new HelperServiceModel
@@ -117,7 +129,9 @@ namespace InterviewTask.Services
                 FridayOpeningHours = weekdayOpeningTimes,
                 SaturdayOpeningHours = weekdayOpeningTimes,
                 SundayOpeningHours = weekendOpeningTimes,
-                TelephoneNumber = "0289 0000000"
+                TelephoneNumber = "0289 0000000",
+                Lat = 54.6,
+                Lon = -5.93
             };
 
             var westMidlandsHelper = new HelperServiceModel
@@ -132,7 +146,9 @@ namespace InterviewTask.Services
                 FridayOpeningHours = alternativeOpeningTime,
                 SaturdayOpeningHours = alternativeOpeningTime,
                 SundayOpeningHours = alternativeOpeningTime,
-                TelephoneNumber = "0289 0000000"
+                TelephoneNumber = "0289 0000000",
+                Lat = 52.48,
+                Lon = -1.9
             };
 
             var walesHelper = new HelperServiceModel
@@ -147,7 +163,9 @@ namespace InterviewTask.Services
                 FridayOpeningHours = weekdayOpeningTimes,
                 SaturdayOpeningHours = weekdayOpeningTimes,
                 SundayOpeningHours = weekendOpeningTimes,
-                TelephoneNumber = "029 8800000"
+                TelephoneNumber = "029 8800000",
+                Lat = 51.48,
+                Lon = -3.18
             };
 
             var fifeHelper = new HelperServiceModel
@@ -162,7 +180,9 @@ namespace InterviewTask.Services
                 FridayOpeningHours = weekdayOpeningTimes,
                 SaturdayOpeningHours = weekdayOpeningTimes,
                 SundayOpeningHours = weekendOpeningTimes,
-                TelephoneNumber = "0159 2000000"
+                TelephoneNumber = "0159 2000000",
+                Lat = 56.11,
+                Lon = -3.15
             };
 
             var openingHours = new List<HelperServiceModel> { eastLondonHelper, northLondonHelper, bristolHelper, somersetHelper, nottinghamHelper, liverpoolHelper, northernIrelandHelper, westMidlandsHelper, walesHelper, fifeHelper };

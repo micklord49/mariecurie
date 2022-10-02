@@ -17,6 +17,9 @@ namespace InterviewTask.Models
         public List<int> FridayOpeningHours { get; set; }
         public List<int> SaturdayOpeningHours { get; set; }
         public List<int> SundayOpeningHours { get; set; }
+        
+        public Double Lat { get; set; }
+        public Double Lon { get; set; }
     }
 }
 
